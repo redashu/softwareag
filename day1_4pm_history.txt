@@ -1,0 +1,124 @@
+    1  sudo -i
+    2  kubectl version
+    3  kubectl  get  nodes
+    4  pwd
+    5  sudo -i
+    6  pwd
+    7  kubectl get nodes
+    8  pwd
+    9  mkdir  /home/ec2-user/.kube 
+   10  cd  /home/ec2-user/.kube
+   11  ls
+   12  wget  http://54.200.0.153/admin.conf
+   13  history 
+   14  cd
+   15  pwd
+   16  kubectl get nodes
+   17  cd  /home/ec2-user/.kube/
+   18  ls
+   19  mv  admin.conf  config
+   20  cd
+   21  kubectl get nodes
+   22  history 
+   23  cd
+   24  kubectl   get pods
+   25  kubectl   get  namespace
+   26  kubectl   get pods
+   27  kubectl   get pods  -n   kube-system 
+   28  history 
+   29  kubectl   get pods  -n   kube-system 
+   30  cd  $HOME/.kube
+   31  ls
+   32  less  config 
+   33  cd
+   34  ls
+   35  mkdir  pods
+   36  ls
+   37  pwd
+   38  cd  pods/
+   39  ls
+   40  kubectl   get  ns
+   41  kubectl   get   namespace
+   42  ls
+   43  nano   ashupod1.yaml
+   44  cat  ashupod1.yaml 
+   45  ls
+   46  kubectl create -f ashupod1.yaml 
+   47  nano   ashupod1.yaml
+   48  rm ashupod1.yaml 
+   49  nano   ashupod1.yaml
+   50  cat  ashupod1.yaml 
+   51  ls
+   52  kubectl create -f  ashupod1.yaml 
+   53  kubectl get pods
+   54  ls
+   55  sudo -i
+   56  ls
+   57  kubectl get pods
+   58  su - root
+   59  sudo -i
+   60  kubectl get pods  ashupod1
+   61  kubectl describe  pods  ashupod1
+   62  kubectl get pods
+   63  kubectl delete   pods   ashupod1
+   64  kubectl get pods
+   65  kubectl get pods  -w
+   66  kubectl get pods 
+   67  kubectl delete   pods   --all
+   68  kubectl get pods  
+   69  history 
+   70  cat  ashupod1.yaml 
+   71  kubectl  explain  pods
+   72  cat ashupod1.yaml 
+   73  cat  ashupod1.yaml 
+   74  kubectl  explain  pods.spec
+   75  kubectl  explain  pods.spec   |  less
+   76  kubectl  explain  pods.spec.containers   |  less
+   77  history 
+   78  ls
+   79  rm  ashupod1.yaml 
+   80  ls
+   81  kubectl run  mypod  --image=nginx  --restart=Never --port=80   
+   82  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   
+   83  kubectl get pods
+   84  kubectl get  pods --all
+   85  kubectl delete   pods --all
+   86  kubectl get  pods --all
+   87  kubectl get  pods 
+   88  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run 
+   89  kubectl get pods
+   90  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run   -o yaml
+   91  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run   -o yaml   >ashupod1.yaml
+   92  cat  ashupod1.yaml 
+   93  history 
+   94  ls
+   95  cat  ashupod1.yaml 
+   96  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run   -o json  >ashupod1.json
+   97  cat ashupod1.json 
+   98  ls
+   99  kubectl create -f  ashupod1.json 
+  100  kubectl get pods  ashumypod
+  101  cat  ashupod1.yaml 
+  102  history 
+  103  kubectl get pods  ashumypod
+  104  kubectl get pods  ashumypod -o yaml 
+  105  history 
+  106  kubectl get pods  ashumypod -o yaml  
+  107  kubectl get pods  ashumypod -o yaml   --export 
+  108  kubectl get pods  ashumypod -o yaml   --export   >aa.yml
+  109  ls
+  110  kubectl create  -f  aa.yml 
+  111  history 
+  112  kubectl  api-resources
+  113  kubectl  api-resources   |  wc  -l
+  114  kubectl  get  namespace
+  115  kubectl  get  ns
+  116  kubectl  api-resources
+  117  kubectl  api-resources  |  grep  -i namespace
+  118  kubectl get  po
+  119  kubectl  api-resources  |  grep  -i pods
+  120  history 
+  121  sudo  yum  install  git -y
+  122  git clone https://github.com/redashu/softwareag
+  123  ls
+  124  history >softwareag/day1_4pm_history.txt
