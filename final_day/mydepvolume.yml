@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mydep
+  name: mydep
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: mydep
+  template:
+    metadata:
+      labels:
+        app: mydep
+    spec:
+      nodeName: ip-172-31-17-218.us-west-2.compute.internal
+      containers:
+      - image: dockerashu/webapp:v2
+        imagePullPolicy: IfNotPresent
+        name: webapp
+        volumeMounts:
+         - name: myvolume
+           mountPath:  /var/www/html/
+      restartPolicy: Always
+      volumes:
+       - name: myvolume
+         hostPath:
+          path: /opt/mypage
+          type: Directory

@@ -1,0 +1,984 @@
+    1  sudo -i
+    2  kubectl version
+    3  kubectl  get  nodes
+    4  pwd
+    5  sudo -i
+    6  pwd
+    7  kubectl get nodes
+    8  pwd
+    9  mkdir  /home/ec2-user/.kube 
+   10  cd  /home/ec2-user/.kube
+   11  ls
+   12  wget  http://54.200.0.153/admin.conf
+   13  history 
+   14  cd
+   15  pwd
+   16  kubectl get nodes
+   17  cd  /home/ec2-user/.kube/
+   18  ls
+   19  mv  admin.conf  config
+   20  cd
+   21  kubectl get nodes
+   22  history 
+   23  cd
+   24  kubectl   get pods
+   25  kubectl   get  namespace
+   26  kubectl   get pods
+   27  kubectl   get pods  -n   kube-system 
+   28  history 
+   29  kubectl   get pods  -n   kube-system 
+   30  cd  $HOME/.kube
+   31  ls
+   32  less  config 
+   33  cd
+   34  ls
+   35  mkdir  pods
+   36  ls
+   37  pwd
+   38  cd  pods/
+   39  ls
+   40  kubectl   get  ns
+   41  kubectl   get   namespace
+   42  ls
+   43  nano   ashupod1.yaml
+   44  cat  ashupod1.yaml 
+   45  ls
+   46  kubectl create -f ashupod1.yaml 
+   47  nano   ashupod1.yaml
+   48  rm ashupod1.yaml 
+   49  nano   ashupod1.yaml
+   50  cat  ashupod1.yaml 
+   51  ls
+   52  kubectl create -f  ashupod1.yaml 
+   53  kubectl get pods
+   54  ls
+   55  sudo -i
+   56  ls
+   57  kubectl get pods
+   58  su - root
+   59  sudo -i
+   60  kubectl get pods  ashupod1
+   61  kubectl describe  pods  ashupod1
+   62  kubectl get pods
+   63  kubectl delete   pods   ashupod1
+   64  kubectl get pods
+   65  kubectl get pods  -w
+   66  kubectl get pods 
+   67  kubectl delete   pods   --all
+   68  kubectl get pods  
+   69  history 
+   70  cat  ashupod1.yaml 
+   71  kubectl  explain  pods
+   72  cat ashupod1.yaml 
+   73  cat  ashupod1.yaml 
+   74  kubectl  explain  pods.spec
+   75  kubectl  explain  pods.spec   |  less
+   76  kubectl  explain  pods.spec.containers   |  less
+   77  history 
+   78  ls
+   79  rm  ashupod1.yaml 
+   80  ls
+   81  kubectl run  mypod  --image=nginx  --restart=Never --port=80   
+   82  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   
+   83  kubectl get pods
+   84  kubectl get  pods --all
+   85  kubectl delete   pods --all
+   86  kubectl get  pods --all
+   87  kubectl get  pods 
+   88  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run 
+   89  kubectl get pods
+   90  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run   -o yaml
+   91  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run   -o yaml   >ashupod1.yaml
+   92  cat  ashupod1.yaml 
+   93  history 
+   94  ls
+   95  cat  ashupod1.yaml 
+   96  kubectl run  ashumypod  --image=nginx  --restart=Never --port=80   --dry-run   -o json  >ashupod1.json
+   97  cat ashupod1.json 
+   98  ls
+   99  kubectl create -f  ashupod1.json 
+  100  kubectl get pods  ashumypod
+  101  cat  ashupod1.yaml 
+  102  history 
+  103  kubectl get pods  ashumypod
+  104  kubectl get pods  ashumypod -o yaml 
+  105  history 
+  106  kubectl get pods  ashumypod -o yaml  
+  107  kubectl get pods  ashumypod -o yaml   --export 
+  108  kubectl get pods  ashumypod -o yaml   --export   >aa.yml
+  109  ls
+  110  kubectl create  -f  aa.yml 
+  111  history 
+  112  kubectl  api-resources
+  113  kubectl  api-resources   |  wc  -l
+  114  kubectl  get  namespace
+  115  kubectl  get  ns
+  116  kubectl  api-resources
+  117  kubectl  api-resources  |  grep  -i namespace
+  118  kubectl get  po
+  119  kubectl  api-resources  |  grep  -i pods
+  120  history 
+  121  sudo  yum  install  git -y
+  122  git clone https://github.com/redashu/softwareag
+  123  ls
+  124  history >softwareag/day1_4pm_history.txt
+  125  cd softwareag/
+  126  git add .
+  127  git commit -m  "day 1 4pm history" .
+  128  git push
+  129  history 
+  130  ls
+  131  cd ..
+  132  ls
+  133  cd ..
+  134  ls
+  135  mkdir  deployment
+  136  ls
+  137  cd  deployment/
+  138  ls
+  139  vim Dockerfile
+  140  cat  Dockerfile 
+  141  vim Dockerfile 
+  142  cat Dockerfile 
+  143  mkdir  mywebapp
+  144  ls
+  145  cd  mywebapp/
+  146  ls
+  147  vim   index.html  
+  148  cat index.html 
+  149  ls
+  150  wget  https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRik25J71kBMnMAE7uyQPyC2JWu1s0e4QfP7Fffqedfl5cIi6kf
+  151  ls
+  152  mv  images\?q\=tbn\:ANd9GcRik25J71kBMnMAE7uyQPyC2JWu1s0e4QfP7Fffqedfl5cIi6kf  kube.png
+  153  ls
+  154  cd  ..
+  155  ls
+  156  ls  mywebapp/
+  157  ls
+  158  cat Dockerfile 
+  159  ls
+  160  docker build -t  dockerashu/web:v1 .
+  161  sudo -i
+  162  docker build -t  dockerashu/web:v1 .
+  163  history 
+  164  docker  images
+  165  docker login
+  166  docker push dockerashu/web:v1 
+  167  history 
+  168  ls
+  169  kubectl create  deployment ashudep1 --image=dockerashu/web:v1    --port=80  --dry-run -o yaml 
+  170  kubectl create  deployment ashudep1 --image=dockerashu/web:v1    --tcp=80  --dry-run -o yaml 
+  171  kubectl create  deployment ashudep1 --image=dockerashu/web:v1      --dry-run -o yaml 
+  172  kubectl create  deployment ashudep1 --image=dockerashu/web:v1      --dry-run -o yaml   >ashudep1.yaml
+  173  ls
+  174  vim  ashudep1.yaml 
+  175  history 
+  176  vim  ashudep1.yaml 
+  177  ls
+  178  kubectl create -f  ashudep1.yaml 
+  179  cat ashudep1.yaml 
+  180  kubectl  get  deployments
+  181  kubectl  get  deployments  -w
+  182  kubectl  get  deployments  
+  183  kubectl  get  deploy
+  184  cat  ashudep1.yaml 
+  185  history 
+  186  kubectl  get  deploy
+  187  kubectl  get  pods
+  188  kubectl  get  deploy
+  189  kubectl  describe  deploy   ramyadeployment
+  190  history 
+  191  docker   images
+  192  kubectl  get  pods
+  193  kubectl  describe  pods  rtdep-55bbc8b65b-jwlvm
+  194  ls
+  195  cat  Dockerfile 
+  196  history 
+  197  kubectl get deploy
+  198  kubectl get deploy  -o wide
+  199  history 
+  200  kubectl get rs
+  201  kubectl  get  pods
+  202  kubectl delete pods  ashudep1-7df7fd4b44-gtg7v
+  203  kubectl  get  pods
+  204  kubectl delete pods  --all
+  205  kubectl  get  pods
+  206  history 
+  207  kubectl get po
+  208  kubectl delete all --all
+  209  docker pull  softwareag/apiportal
+  210  docker ps
+  211  docker kill anicon1
+  212  docker rm  $(docker ps -aq)
+  213  docker images
+  214  docker pull registry 
+  215  docker run -itd --name reg -p 5000:5000 --restart always registry 
+  216  docker info
+  217  vim /etc/docker/daemon.json
+  218  sudo vim /etc/docker/daemon.json
+  219  sudo systemctl daemon-reload 
+  220  sudo systemctl restart docker
+  221  cat  /etc/docker/daemon.json 
+  222  docker login -u admin -p Redhat@123  52.40.35.163:8083
+  223  sudo -i
+  224  vim .bashrc 
+  225  source .bashrc 
+  226  vim /tmp/a.yml
+  227  kubectl cluster-info 
+  228  kubectl cluster-info  dump
+  229  kubectl get rs
+  230  kubectl get rs --all-namespaces 
+  231  kubectl get rs calico-kube-controllers-55754f75c -n kube-system  -o yaml
+  232  vim .bashrc 
+  233  docker  network  ls
+  234  sudo docker  network  ls
+  235  kubectl get  pods -n  kube-system
+  236  kubectl get nodes
+  237  vim   $HOME/.bashrc  
+  238  cat  $HOME/.bashrc
+  239  source  $HOME/.bashrc
+  240  sudo -i
+  241  kubectl  get  pod
+  242  kubectl  get  pods
+  243  history 
+  244  cd
+  245  ls
+  246  cd  deployment/
+  247  ls
+  248  docker images  |   grep -i dockerashu
+  249  sudo docker images  |   grep -i dockerashu
+  250  sudo docker  run -itd --name ashuc1 -p 3456:80            dockerashu/web:v1  
+  251  sudo docker  run -itd --name ashuc1 -p 3488:80            dockerashu/web:v1  
+  252  sudo docker  run -itd --name ashuc111 -p 3488:80            dockerashu/web:v1  
+  253  sudo docker  ps  |   grep -i ashu
+  254  curl  http://localhost:3488
+  255  cat  Dockerfile 
+  256  curl  http://localhost:3488
+  257  sudo docker  ps  |   grep -i ashu
+  258  sudo docker kill  ashuc111
+  259  sudo docker rm   ashuc111
+  260  history 
+  261  kubectl get deploy
+  262  kubectl get deployments
+  263  kubectl create deployment ashudep1 --image=dockerashu/web:v1  --restart=Always   --dry-run  
+  264  kubectl create deployment ashudep1 --image=dockerashu/web:v1     --dry-run  
+  265  kubectl create deployment ashudep1 --image=dockerashu/web:v1     --dry-run   -o yaml  >webappv1.yaml
+  266  ls
+  267  kubectl create  namespace   ashuns
+  268  kubectl get  ns
+  269  ls
+  270  history 
+  271  ls
+  272  vim   webappv1.yaml 
+  273  kubectl create -f  webappv1.yaml 
+  274  kubectl get deploy
+  275  kubectl get deploy -n  ashuns 
+  276  kubectl get deploy --all-namespaces 
+  277  kubectl get deploy -n  ashuns 
+  278  kubectl get pods -n  ashuns 
+  279  kubectl get rs -n  ashuns 
+  280  kubectl get pods -n  ashuns -o wide
+  281  curl  192.168.173.180
+  282  kubectl get pods -n  ashuns -o wide
+  283  curl  192.168.173.180
+  284  kubectl get pods -n  ashuns -o wide
+  285  kubectl get pods -n  kube-system 
+  286  ls
+  287  cat  webappv1.yaml 
+  288  kubectl  create  service  nodeport         mydepservice --tcp=80  -n  ashuns 
+  289  kubectl  get svc  -n  ashuns 
+  290  kubectl get svc mydepservice -n  ashuns   -o yaml 
+  291  kubectl get svc mydepservice -n  ashuns   -o yaml   >svc1.yaml
+  292  vim  svc1.yaml 
+  293  kubectl  get svc  -n  ashuns 
+  294  history 
+  295  kubectl  get svc  -n  ashuns 
+  296  kubectl get po -n ashuns 
+  297  kubectl get po -n ashuns  --show-labels 
+  298  kubectl run p1 --image=alpine --restart=Never --command   -- /bin/sh -c  "ping  8.8.8.8"
+  299  kubectl get po 
+  300  kubectl get po   p1
+  301  kubectl get po   p1  --show-labels 
+  302  kubectl get po   p1  --show-labels  -o wide
+  303  kubectl delete po p1
+  304  history 
+  305  kubectl get  deploy -n ashuns 
+  306  kubectl get  deploy -n ashuns --show-labels 
+  307  ls
+  308  cat  webappv1.yaml 
+  309  kubectl get  deploy -n ashuns --show-labels 
+  310  kubectl get  po -n ashuns --show-labels 
+  311  kubectl get  deploy -n ashuns --show-labels 
+  312  kubectl get svc -n ashuns --show-labels 
+  313  kubectl get svc -n ashuns -o yaml >svc1.yaml
+  314  kubectl get svc  mydepservice -n ashuns -o yaml >svc1.yaml
+  315  kubectl get svc  mydepservice -n ashuns -o yaml 
+  316  kubectl get svc  mydepservice -n ashuns -o yaml           >svc1.yaml 
+  317  history 
+  318  kubectl get  deploy -n ashuns --show-labels 
+  319  vim   svc1.yaml 
+  320  kubectl create -f svc1.yaml 
+  321  kubectl apply -f svc1.yaml 
+  322  kubectl get svc -n ashuns --show-labels 
+  323  kubectl get deploy -n ashuns --show-labels 
+  324  history 
+  325  kubectl get svc -n ashuns --show-labels 
+  326  sudo -i
+  327  cd ..
+  328  ls
+  329  cd pods/
+  330  ls
+  331  pwd
+  332  ls
+  333  kubectl run pod2 --image=nginx --restart=Never  --dry-run -o yaml  >pod2.yaml 
+  334  pwd
+  335  vim   pod2.yaml 
+  336  ls
+  337  vim  day1pod.yml
+  338  kubectl create -f day1pod.yml -n ashuns 
+  339  kubectl get pod -n ashuns 
+  340  kubectl get pod -n ashuns  --show-labels 
+  341  cat pod2.yaml 
+  342  history 
+  343  ls
+  344  vim pod2.yaml 
+  345  kubectl create -f pod2.yaml -n ashuns 
+  346  kubectl get po -n ashuns 
+  347  kubectl get po -n ashuns --show-labels 
+  348  kubectl get po pod2 -n ashuns --show-labels 
+  349  kubectl get po pod2 -n ashuns --show-labels -o wide
+  350  history 
+  351  kubectl get po pod2 -n ashuns --show-labels -o wide
+  352  kubectl get po pod2 -n ashuns --show-labels 
+  353  kubectl create service  nodeport  pod2svc  --tcp 1234         --dry-run  -o yaml  >pod2svc.yml 
+  354  ls
+  355  history 
+  356  kubectl get pod -n ashuns --show-labels 
+  357  kubectl delete po mypod -n ashuns 
+  358  kubectl get pod -n ashuns --show-labels 
+  359  ls
+  360  vim pod2svc.yml 
+  361  vim -d  pod2.yaml  pod2svc.yml 
+  362  history 
+  363  cat  pod2svc.yml 
+  364  cat pod2
+  365  cat pod2.yaml 
+  366  ls
+  367  kubectl create -f pod2svc.yml  -n ashuns 
+  368  kubectl get  po,svc   -n  ashuns 
+  369  kubectl get  po,svc   -n  ashuns   --show-labels 
+  370  ls
+  371  vim  pod2svc.yml 
+  372  kubectl create -f pod2svc.yml -n ashuns 
+  373  kubectl get svc -n ashuns 
+  374  ls
+  375  vim  pod2.yaml 
+  376  kubectl create -f  pod2.yaml --replace
+  377  kubectl replace -f  pod2.yaml --force
+  378  kubectl get po -n ashuns  --show-labels 
+  379  vim pod2.yaml 
+  380  kubectl replace -f  pod2.yaml --force
+  381  kubectl get po -n ashuns  --show-labels 
+  382  kubectl get svc -n ashuns 
+  383  kubectl delete svc pod2svc -n ashuns 
+  384  kubectl replace -f  pod2.yaml --force
+  385  kubectl get po -n ashuns  --show-labels 
+  386  kubectl edit po pod2  -n ashuns  
+  387  kubectl get po -n ashuns  --show-labels 
+  388  vim  pod2svc.yml 
+  389  kubectl create  -f  pod2svc.yml -n ashuns 
+  390  kubectl get po,svc -n ashuns  --show-labels 
+  391  history 
+  392  kubectl get po,svc -n ashuns  --show-labels 
+  393  kubectl get deploy -n ashuns 
+  394  kubectl edit  deploy   ashudep1  -n ashuns 
+  395  kubectl get deploy -n ashuns 
+  396  kubectl get po -n ashuns --show-labels 
+  397  history 
+  398  kubectl get  svc  -n ashuns 
+  399  kubectl edit svc mydepservice  -n ashuns 
+  400  kubectl get  svc  -n ashuns 
+  401  history 
+  402  kubectl get  pods --all-namespaces 
+  403  kubectl get  pods --all-namespaces    |   wc -l
+  404  kubectl get  deploy  -n  ashuns 
+  405  kubectl set 
+  406  kubectl set resources 
+  407  history 
+  408  cd ..
+  409  ls
+  410  cd  deployment/
+  411  ls
+  412  cd  mywebapp/
+  413  ls
+  414  vim  index.html 
+  415  cat index.html 
+  416  ls
+  417  vim index.html 
+  418  cat index.html 
+  419  wget  https://www.docker.com/sites/default/files/d8/styles/large/public/2019-10/swarm-kubernetes.png?itok=ry_KuFUy
+  420  ls
+  421  mv  swarm-kubernetes.png\?itok\=ry_KuFUy   docker.png 
+  422  history 
+  423  ls
+  424  wget  https://www.docker.com/sites/default/files/d8/styles/large/public/2019-10/swarm-kubernetes.png?itok=ry_KuFUy
+  425  ls
+  426  cd ..
+  427  ls
+  428  docker build -t dockerashu/webapp:v2 .
+  429  sudo docker build -t dockerashu/webapp:v2 .
+  430  history 
+  431  docker login -u dockerashu 
+  432  sudo docker login -u dockerashu 
+  433  sudo docker push dockerashu/webapp:v2 
+  434  docker images   |    grep  -i docker
+  435  sudo docker images   |    grep  -i dockerashu
+  436  docker logout
+  437  sudo docker logout
+  438  kubectl describe deployments  ashudep1  -n ashuns 
+  439  kubectl set image  deploy  ashudep1                      dockerashu/web=dockerashu/webapp:v2  -n  ashuns 
+  440  kubectl set image  deploy  ashudep1                      dockerashu/web:v1=dockerashu/webapp:v2  -n  ashuns 
+  441  kubectl set image  deploy  ashudep1                      web=dockerashu/webapp:v2  -n  ashuns 
+  442  kubectl get deployments.apps  -n ashuns 
+  443  kubectl rollout history deployment ashudep1
+  444  kubectl rollout history deployment ashudep1 -n ashuns 
+  445  kubectl rollout undo deployment ashudep1 -n ashuns 
+  446  kubectl rollout status deployment ashudep1 -n ashuns 
+  447  history 
+  448  kubectl get deployments.apps  -n ashuns 
+  449  kubectl describe deployments  ashudep1  -n ashuns 
+  450  history 
+  451  clear
+  452  kubectl create deployment okk --image=nginx --replicas 2 -n ashuns 
+  453  kubectl create deployment okk --image=nginx -n ashuns 
+  454  kubectl get deploy -n ashuns 
+  455  kubectl get deploy -n ashuns  --show-labels 
+  456  kubectl expose deployment okk -n  ashuns --type=LoadBalancer 
+  457  kubectl expose deployment okk -n  ashuns --type=LoadBalancer --port=80 
+  458  kubectl get svc -n ashuns 
+  459  kubectl get svc,deploy -n ashuns --show-labels 
+  460  kubectl delete svc okk pod2svc -n ashuns 
+  461  kubectl get  svc
+  462  kubectl get  svc -n 
+  463  kubectl get  svc -n  ashuns 
+  464  kubectl run pod1 --image=nginx --restart=Never -n  ashuns 
+  465  kubectl get po -n ashuns 
+  466  history 
+  467  kubectl get po pod1 -n ashuns --show-labels 
+  468  kubectl expose pod pod1 --type=NodePort -n ashuns 
+  469  kubectl expose pod pod1 --type=NodePort -n ashuns --port=80 
+  470  kubectl get svc,po -n ashuns --show-labels 
+  471  kubectl delete svc pod1 -n ashuns 
+  472  kubectl create service loadbalancer pod1 --port=80 -n ashuns 
+  473  kubectl create service nodeport pod1 --port=80 -n ashuns 
+  474  kubectl create service loadbalancer pod1 --tcp=80 -n ashuns 
+  475  kubectl get svc -n ashuns --show-labels 
+  476  kubectl label services pod1 -n ashuns  run=pod1 
+  477  kubectl get svc -n ashuns --show-labels 
+  478  kubectl get po -n ashuns --show-labels 
+  479  kubectl edit svc pod1 -n ashuns 
+  480  kubectl get po -n ashuns --show-labels 
+  481  kubectl edit svc pod1 -n ashuns 
+  482  kubectl rollout history deployment ashudep1  -n ashuns 
+  483  ls
+  484  vim  mywebapp/index.html 
+  485  cd ..
+  486  ls
+  487  cd deployment/
+  488  ls
+  489  sudo docker build  -t  dockerashu/web:v4  .  
+  490  sudo docker login -u  dockerashu
+  491  sudo docker push dockerashu/web:v4  
+  492  kubectl set image deploy ashudep1  web=dockerashu/web:v4  -n  ashuns 
+  493  kubectl describe deployments.apps -n ashuns 
+  494  kubectl rollout history deployment ashudep1  -n ashuns 
+  495  kubectl rollout undo deployment ashudep1 -n ashuns            --to-revision=3 
+  496  kubectl rollout history deployment ashudep1  -n ashuns 
+  497  kubectl rollout status deployment ashudep1  -n ashuns 
+  498  history 
+  499  kubectl get svc -n ashuns 
+  500  kubectl deletesvc --all  -n ashuns 
+  501  kubectl delete svc --all  -n ashuns 
+  502  kubectl get svc -n ashuns 
+  503  kubectl get deployments.apps -n ashuns 
+  504  kubectl get deployments.apps -n ashuns --show-labels 
+  505  kubectl expose deployment ashudep1  --type=LoadBalancer   --tcp=80  -n  ashuns 
+  506  kubectl expose deployment ashudep1  --type loadbalancer   --port=80  -n  ashuns 
+  507  kubectl expose deployment ashudep1  --type LoadBalancer   --port=80  -n  ashuns 
+  508  kubectl get deployments.apps -n ashuns --show-labels 
+  509  kubectl get svc -n ashuns --show-labels 
+  510  history 
+  511  kubectl get  svc -n ashuns 
+  512  kubectl get svc -n ashuns 
+  513  sudo  docker  info  
+  514  cd  /etc/sysconfig/
+  515  ls
+  516  cat   docker
+  517  vim docker
+  518  cat     /etc/docker/daemon.json  
+  519  sudo vim /etc/docker/daemon.json 
+  520  sudo  systemctl daemon-reload 
+  521  sudo  systemctl restart  docker
+  522  sudo  docker info 
+  523  sudo docker  images   |   grep  -i alpine
+  524  sudo  docker info 
+  525  docker tag alpine 35.167.232.210:5000/ashuimg:v1  
+  526  sudo docker tag alpine 35.167.232.210:5000/ashuimg:v1  
+  527  sudo docker push  35.167.232.210:5000/ashuimg:v1  
+  528  history 
+  529  cd 
+  530  ls
+  531  mkdir  multicont_pods
+  532  cd multicont_pods/
+  533  ls
+  534  kubectl run  podashu1 --image=35.167.232.210:5000/ashuimg:v1   --restart=Never  --dry-run -o yaml --command  -- /bin/sh -c  "ping google.com"
+  535  kubectl run  podashu1 --image=35.167.232.210:5000/ashuimg:v1   --restart=Never  --dry-run -o yaml --command  -- /bin/sh -c  "ping google.com"        >multicontpod.yml
+  536  history 
+  537  ls
+  538  cat  multicontpod.yml 
+  539  kubectl create -f  multicontpod.yml  -n ashuns 
+  540  kubectl get po -n ashuns 
+  541  history 
+  542  kubectl get po -n ashuns 
+  543  kubectl describe  po podashu1 -n ashuns 
+  544  ls
+  545  history 
+  546  vim  multicontpod.yml 
+  547  vim  /tmp/a.oo
+  548  vim  multicontpod.yml 
+  549  kubectl replace -f multicontpod.yml --force  -n   ashuns 
+  550  kubectl get po -n ashuns 
+  551  cat  multicontpod.yml 
+  552  ls
+  553  cd  ..
+  554  sl
+  555  ls
+  556  cd  deployment/
+  557  ls
+  558  cat  svc1.yaml 
+  559  ls
+  560  vim  ashudep1.yaml 
+  561  sudo -i
+  562  kubectl delete all --all
+  563  ls
+  564  vim  /tmp/a.yml
+  565  kubectl create -f  /tmp/a.yml 
+  566  kubectl get deploy ,svc
+  567  kubectl get deploy,svc
+  568  kubectl run pod1 --image=fedora --restart=Never --command --  /bin/sh -c  "sleep 3600"
+  569  kubectl get po
+  570  kubectl get po -n
+  571  kubectl get po
+  572  kubectl exec -it pod1 -- /bin/bash
+  573  kubectl get deploy,svc
+  574  kubectl exec -it pod1 -- /bin/bash
+  575  kubectl run pod1 --image=fedora --restart=Never --command --  /bin/sh -c  "sleep 3600" -n ashuns
+  576  kubectl get po
+  577  kubectl run pod1 --image=fedora --restart=Never --command --  /bin/sh -c  "sleep 3600" -n ashuns
+  578  kubectl run pod11 --image=fedora --restart=Never --command --  /bin/sh -c  "sleep 3600" -n ashuns
+  579  kubectl get po -n ashuns 
+  580  kubectl delete all --all-namespaces 
+  581  kubectl delete all --all --all-namespaces 
+  582  kubectl create -f  /tmp/a.yml 
+  583  kubectl get deploy,svc
+  584  kubectl run fedora --image=fedora --restart=Never --command -- /bin/bash -c  "sleep 8000" -n ashuns 
+  585  kubectl get po -n ashuns 
+  586  kubectl get po 
+  587  kubectl delete po fedora 
+  588  kubectl run fedora --image=fedora --restart=Never --dry-run -o yaml --command -- /bin/bash -c  "sleep 8000" -n ashuns >/tmp/pod.yml
+  589  kubectl create -f  /tmp/pod.yml  -n ashuns 
+  590  kubectl get po -n ashuns 
+  591  kubectl exec -it fedora -n ashuns  -- /bin/bash
+  592  ls
+  593  mkdir pyapp
+  594  cd pyapp/
+  595  vim app.py
+  596  ls
+  597  cat app.py 
+  598  vim  index.html
+  599  ls
+  600  python3
+  601  sudo yum  install python3
+  602  sudo pip3  install Flask 
+  603  ls
+  604  cat  app.py 
+  605  ls
+  606  vim  requirements.txt
+  607  sudo yum  install java
+  608  sudo curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
+  609  cat  /etc/yum.repos.d/jenkins.repo 
+  610  sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+  611  sudo yum install jenkins
+  612  sudo systemctl enable --now jenkins
+  613  systemctl status jenkins
+  614  sudo systemctl status jenkins
+  615  jps
+  616  sudo systemctl restart jenkins
+  617  sudo systemctl status jenkins
+  618  sudo -i
+  619  ls
+  620  cat app.py 
+  621  ls
+  622  cp app.py  testapp.py
+  623  vim testapp.py 
+  624  python3 testapp.py 
+  625  vim testapp.py 
+  626  python3 testapp.py 
+  627  ls
+  628  vim requirements.txt 
+  629  pwd
+  630  ls
+  631  rm testapp.py 
+  632  ls
+  633  mkdir app db
+  634  mv  app.py  index.html app
+  635  ls
+  636  tree
+  637  sudo yum  install tree -y
+  638  tree
+  639  ls
+  640  vim app/Dockerfile
+  641  ls
+  642  vim docker-compose.yml
+  643  vim app/app.py 
+  644  ls
+  645  cd ..
+  646  ls
+  647  mkdir  compose
+  648  cd compose/
+  649  git clone  https://github.com/makandas/composetutorial
+  650  ls
+  651  cd composetutorial/
+  652  ls
+  653  sudo -i
+  654  ls
+  655  cd app
+  656  ls
+  657  cat requirements.txt 
+  658  cat app.py 
+  659  ls
+  660  ls templates/
+  661  cd ..
+  662  ls
+  663  cat docker-compose.yml 
+  664  docker-compose up -d
+  665  vim docker-compose.yml 
+  666  ls
+  667  vim app/app.py 
+  668  ls
+  669  docker-compose up  -d
+  670  vim docker-compose.yml 
+  671  sudo systemctl status docker
+  672  docker images
+  673  sudo -s
+  674  cd ..
+  675  ls
+  676  vim app.yaml
+  677  kubectl create  -f  app.yaml 
+  678  vim app.yaml 
+  679  kubectl create  -f  app.yaml 
+  680  kubectl replace -f  app.yaml --force 
+  681  kubectl get po 
+  682  kubectl get po,svc
+  683  kubectl get statefulsets.apps 
+  684  kubectl describe statefulsets.apps web
+  685  sudo yum update -y
+  686  sudo yum install java-1.8.0-openjdk.x86_64 -y
+  687  sudo mkdir /app && cd /app
+  688  sudo wget -O nexus.tar.gz https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+  689  sudo tar -xvf nexus.tar.gz
+  690  sudo mv nexus-3* nexus
+  691  ls
+  692  rm  nexus.tar.gz 
+  693  sudo rm  nexus.tar.gz 
+  694  ls
+  695  sudo adduser nexus
+  696  sudo chown -R nexus:nexus /app/nexus
+  697  sudo chown -R nexus:nexus /app/sonatype-work
+  698  sudo vi  /app/nexus/bin/nexus.rc
+  699  sudo vi /app/nexus/bin/nexus.vmoptions
+  700  sudo vi /etc/systemd/system/nexus.service
+  701  sudo  systemctl start  nexus
+  702  sudo  systemctl status  nexus
+  703  sudo  systemctl enable  nexus
+  704  cat  /app/sonatype-work/nexus3/admin.password
+  705  sudo vim /etc/docker/daemon.json 
+  706  sudo systemctl daemon-reload 
+  707  sudo systemctl restart docker
+  708  docker info
+  709  sudo docker info
+  710  sudo docker tag  alpine  52.35.174.190:8082/alpine:v1  
+  711  sudo docker push 52.35.174.190:8082/alpine:v1  
+  712  sudo docker login -u  admin  52.35.174.190:8082
+  713  sudo docker push 52.35.174.190:8082/alpine:v1  
+  714  sudo docker logout -u  admin  
+  715  sudo docker logout 
+  716  sudo docker logout 52.35.174.190:8082
+  717  sudo docker  info
+  718  sudo docker logout 52.40.35.163:8123
+  719  sudo docker logout 52.35.174.190:8082
+  720  sudo docker logout 
+  721  sudo docker login -u admin  52.35.174.190:8082
+  722  ls  $HOME/.docker
+  723  cat  \$HOME/.docker/config.json 
+  724  cat  $HOME/.docker/config.json 
+  725  sudo docker login  52.35.174.190:8082
+  726  sudo docker logout  52.35.174.190:8082
+  727  cat  $HOME/.docker/config.json 
+  728  sudo docker logout  
+  729  sudo -i
+  730  kubectl create secret generic  ok --from-literal k=v
+  731  sudo -i
+  732  cd
+  733  vim .docker/config.json 
+  734  cat  .docker/config.json 
+  735  vim .docker/config.json 
+  736  cat  .docker/config.json 
+  737  docker login -u admin  52.35.174.190:8082
+  738  sudo docker login -u admin  52.35.174.190:8082
+  739  cat  .docker/config.json 
+  740  sudo -i
+  741  docker  images
+  742  docker login -u admin  52.35.174.190:8082
+  743  cat  .docker/config.json 
+  744  kubectl create secret generic mysecdocker --from-file=.dockerjsonfile=/home/ec2-user/.docker/config.json   -n ashuns 
+  745  kubectl get secrets -n ashuns 
+  746  vim  /tmp/aa.yml
+  747  docker image  |   grep -i 8082
+  748  docker images  |   grep -i 8082
+  749  docker rmi 52.35.174.190:8082/alpine:v1
+  750  docker rmi 52.40.35.163:8082/alpine
+  751  history  
+  752  history    |   grep -i push
+  753  docker  pull  52.35.174.190:8082/alpine:v1
+  754  vim /tmp/aa.yml 
+  755  kubectl create -f  /tmp/aa.yml -n ashuns 
+  756  kubectl get po -n ashuns 
+  757  kubectl get secrets -n ashuns 
+  758  kubectl get secrets mysecdocker   -n ashuns -o yaml 
+  759  kubectl get  serviceaccounts -n ashuns 
+  760  kubectl get secrets -n ashuns 
+  761  kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "mysecdocker"}]}'
+  762  kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "mysecdocker"}]}' -n ashuns 
+  763  kubectl get secrets 
+  764  kubectl get secrets -n ashuns 
+  765  kubectl get serviceaccounts 
+  766  kubectl get serviceaccounts -n ashuns 
+  767  history 
+  768  kubectl get po -n ashuns 
+  769  kubectl replace -f  /tmp/aa.yml -n ashuns  --force
+  770  kubectl get po -n ashuns 
+  771  cat /tmp/aa.yml 
+  772  kubectl describe  po private-reg -n ashuns 
+  773  sudo vim /etc/docker/daemon.json 
+  774  sudo systemctl daemon-reload 
+  775  sudo systemctl restart docker
+  776  cat  /etc/docker/daemon.json 
+  777  docker  tag  alpine  52.35.174.190:8083/alpine:v1 
+  778  sudo docker  tag  alpine  52.35.174.190:8083/alpine:v1 
+  779  docker logout  52.35.174.190:8082
+  780  docker logout  52.35.174.190:8083
+  781  docker login -u admin  52.35.174.190:8083
+  782  sudo -i
+  783  docker login -u admin  52.35.174.190:8083
+  784  docker login -u admin  https://52.35.174.190:8083
+  785  docker login -u admin  52.35.174.190:8083
+  786  kubectl delete secrets -n ashuns mysecdocker 
+  787  kubectl create secret tls --help
+  788  kubectl create secret docker-registry  regsec  --docker-username=admin --docker-password=Devops@123  --docker-server=52.35.174.190:8083  -n  ashuns 
+  789  sudo vim /etc/docker/daemon.json 
+  790  sudo systemctl daemon-reload 
+  791  sudo systemctl restart docker
+  792  sudo chmod 777  /var/run/docker.sock 
+  793  sudo chmod 777  /var/run/docker.pid
+  794  cat /etc/docker/daemon.json 
+  795  docker info
+  796  docker login -u admin 52.35.174.190:8082
+  797  kubectl config current-context 
+  798  kubectl config get-contexts 
+  799  kubectl config use-context kubernetes-admin@kubernetes 
+  800  ls
+  801  mkdir  day_final
+  802  cd  d
+  803  cd  day_final/
+  804  ls
+  805  kubectl run  pod1 --image=nginx --restart=Never --dry-run -o     yaml   >volumepod1.yml
+  806  ls
+  807  vim  volumepod1.yml 
+  808  kubectl explain pods.spec  |   grep -i volume
+  809  vim  volumepod1.yml 
+  810  kubectl get nodes
+  811  vim  volumepod1.yml 
+  812  kubectl explain pods.spec  |   grep -i node
+  813  vim  volumepod1.yml 
+  814  cat volumepod1.yml 
+  815  ls
+  816  kubectl create -f  volumepod1.yml  -n ashuns 
+  817  kubectl get po -n ashuns 
+  818  kubectl delete po --all -n ashuns 
+  819  kubectl create -f  volumepod1.yml  -n ashuns 
+  820  kubectl get po -n ashuns 
+  821  kubectl get po -n ashuns --show-labels 
+  822  kubectl expose pod pod1  --type=Nodeport --tcp=80 -n  ashuns  
+  823  kubectl expose pod pod1  --type=Nodeport --port=80 -n  ashuns  
+  824  kubectl expose pod pod1  --type=NodePort --port=80 -n  ashuns  
+  825  kubectl get svc -n ashuns 
+  826  kubectl get svc -n ashuns --show-labels 
+  827  kubectl get po -n ashuns --show-labels 
+  828  history 
+  829  cat volumepod1.yml 
+  830  history 
+  831  kubectl get svc -n ashuns 
+  832  kubectl get  pod -n ashuns 
+  833  kubectl exec -it  pod1 -n ashuns  bash
+  834  ls
+  835  kubectl get po -n ashuns -o wide
+  836  history 
+  837  docker images   |   grep  -i ashu
+  838  kubectl create  deployment ashudep11 --image=dockerashu/webapp:v2  --dry-run -o        yaml  >volumedep1.yaml
+  839  ls
+  840  vim  volumedep1.yaml 
+  841  kubectl create -f  volumedep1.yaml -n  ashuns 
+  842  kubectl get deploy -n ashuns 
+  843  kubectl expose deployment ashudep11 --type=NodePort --port=80 -n ashuns 
+  844  kubectl get svc,deploy -n ashuns --show-labels 
+  845  kubectl delete all --all -n ashuns 
+  846  kubectl get nodes
+  847  kubectl delete all --all -n  rtns 
+  848  cd  
+  849  ls
+  850  cd  .kube/
+  851  ls
+  852  cd   
+  853  ls
+  854  cd  .kube
+  855  ls
+  856  rm -fr * 
+  857  ls
+  858  wget   http://54.185.197.44/config
+  859  ls
+  860  kubectl get  nodes
+  861  history 
+  862  cd
+  863  kubectl create  namespace  ashutoshh
+  864  kubectl get ns
+  865  mkdir  final_day
+  866  cd  final_day/
+  867  kubectl create deployment ashudep1  --image=nginx -n  ashutoshh 
+  868  kubectl get deploy -n ashutoshh 
+  869  kubectl expose deployment ashudep1 --type=NodePort --port=80 -n ashutoshh 
+  870  kubectl get svc,pod  -n  ashutoshh --show-labels 
+  871  history 
+  872  kubectl get svc,pod  -n  ashutoshh --show-labels 
+  873  history 
+  874  # 54.185.197.44   
+  875  kubectl delete all -n  ashutoshh 
+  876  kubectl delete all --all -n  ashutoshh 
+  877  alias   cleanup="kubectl delete all --all -n  ashutoshh"
+  878  echo alias   cleanup="kubectl delete all --all -n  ashutoshh" >>$HOME/.bashrc
+  879  cleanup 
+  880  docker  images  |    grpe -i ashu
+  881  docker  images  |    grep  -i ashu
+  882  kubectl create deployment --image=dockerashu/webapp:v2  -n  ashutoshh 
+  883  kubectl create deployment mydep --image=dockerashu/webapp:v2  -n  ashutoshh 
+  884  history 
+  885  kubectl get  deployments.apps  -n ashutoshh 
+  886  kubectl expose  deployment  mydep  --type=Nodeport --port=80  -n  ashutoshh 
+  887  kubectl expose  deployment  mydep  --type=NodePort --port=80  -n  ashutoshh 
+  888  history 
+  889  kubectl get  svc  -n ashutoshh 
+  890  kubectl get deploy -n ashutoshh 
+  891  kubectl scale deployment mydep  --replicas=4   -n ashutoshh 
+  892  kubectl get deploy -n ashutoshh 
+  893  kubectl get deploy -n ashutoshh  -w
+  894  kubectl get pod -n ashutoshh 
+  895  kubectl get deploy -n ashutoshh 
+  896  kubectl get deploy mydep -n ashutoshh -o yaml --export >mydepvolume.yml
+  897  ls
+  898  vim mydepvolume.yml 
+  899  history 
+  900  vim mydepvolume.yml 
+  901  kubectl get po -n ashutoshh 
+  902  kubectl get po  mydep-674f9d7ff8-5w2z6  -n ashutoshh -o yaml
+  903  kubectl get po  mydep-674f9d7ff8-5w2z6  -n ashutoshh -o yaml --export
+  904  history 
+  905  kubectl get nodes
+  906  ls
+  907  vim  mydepvolume.yml 
+  908  history 
+  909  vim  mydepvolume.yml 
+  910  ls
+  911  kubectl create -f  mydepvolume.yml  -n  ashutoshh 
+  912  cleanup 
+  913  kubectl create -f  mydepvolume.yml  -n  ashutoshh 
+  914  kubectl get deployments.apps  -n ashutoshh 
+  915  kubectl expose deployment mydep --type=NodePort --port=80  -n ashutoshh 
+  916  kubectl get deploy,svc -n ashutoshh --show-labels 
+  917  kubectl get po -n ashutoshh -o wide
+  918  kubectl scale deployment mydep --replicas=3 -n ashutoshh 
+  919  kubectl get po -n ashutoshh -o wide
+  920  history 
+  921  ls
+  922  vim mydepvolume.yml 
+  923  history 
+  924  showmount -e  34.212.29.164
+  925  vim  myashupv1.yml
+  926  history 
+  927  showmount -e  34.212.29.164
+  928  vim  myashupv1.yml
+  929  cat   >taaa.yml
+  930  cat  myashupv1.yml 
+  931  kubectl create -f  myashupv1.yml 
+  932  kubectl get pv
+  933  kubectl get pv -w
+  934  cat  myashupv1.yml 
+  935  kubectl get pv
+  936  ;
+  937  kubectl get pv
+  938  kubectl get pv   |  wc  -l
+  939  cat    >mypvc.yml
+  940  ls
+  941  vim  mypvc.yml 
+  942  vim  myashupv1.yml 
+  943  vim  mypvc.yml 
+  944  kubectl get pv
+  945  kubectl create -f  mypvc.yml 
+  946  kubectl get pvc
+  947  kubectl get pvc -n ashutoshh 
+  948  cat mypvc.yml 
+  949  history 
+  950  cat mypvc.yml 
+  951  sudo -i 
+  952  history    |   grep -i wget
+  953  sudo -i 
+  954  sudo -i
+  955  kubectl get pvc --all-namespaces 
+  956  ls
+  957  vim podwithvpc.yml
+  958  kubectl get pvc -n ashutoshh 
+  959  vim podwithvpc.yml
+  960  cleanup 
+  961  kubectl create -f  podwithvpc.yml -n ashutoshh 
+  962  kubectl get po -n  ashutoshh 
+  963  kubectl get po -n  ashutoshh -w
+  964  kubectl get po -n  ashutoshh 
+  965  history 
+  966  cat  podwithvpc.yml 
+  967  clear
+  968  kubectl get po -n ashutoshh 
+  969  kubectl get po -n ashutoshh --show-labels 
+  970  kubectl exec  -it mypodashu -n  ashutoshh  bash
+  971  kubectl edit po mypodashu -n  ashutoshh 
+  972  kubectl get po -n ashutoshh --show-labels 
+  973  kubectl edit po mypodashu -n  ashutoshh 
+  974  kubectl get po -n ashutoshh --show-labels 
+  975  kubectl expose pod mypodashu --type=NodePort --port=80 -n ashutoshh 
+  976  kubectl get po,svc -n ashutoshh --show-labels 
+  977  history 
+  978  ls
+  979  tree
+  980  ls
+  981  cd ...
+  982  cd ..
+  983  ls
+  984  history >dayfinal.txt

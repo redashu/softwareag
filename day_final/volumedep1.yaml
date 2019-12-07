@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ashudep11
+  name: ashudep11
+  namespace: ashuns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashudep11
+  template:
+    metadata:
+      labels:
+        app: ashudep11
+    spec:
+      containers:
+      - image: dockerashu/webapp:v2
+        name: webapp
+        ports:
+         - containerPort: 80
+

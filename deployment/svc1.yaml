@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2019-12-06T06:38:34Z"
+  labels:
+    app: ashudep1
+  name: mydepservice
+  namespace: ashuns
+  resourceVersion: "171589"
+  selfLink: /api/v1/namespaces/ashuns/services/mydepservice
+  uid: d2247d81-4dc3-4c19-85bd-a318b77d9bcd
+spec:
+  clusterIP: 10.105.50.45
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: "80"
+    nodePort: 31319
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ashudep1
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

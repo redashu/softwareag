@@ -1,0 +1,28 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "ashumypod",
+        "creationTimestamp": null,
+        "labels": {
+            "run": "ashumypod"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "ashumypod",
+                "image": "nginx",
+                "ports": [
+                    {
+                        "containerPort": 80
+                    }
+                ],
+                "resources": {}
+            }
+        ],
+        "restartPolicy": "Never",
+        "dnsPolicy": "ClusterFirst"
+    },
+    "status": {}
+}

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  namespace: ashuns
+  labels:
+    app: ashudep1
+  name: ashudep1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashudep1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashudep1
+    spec:
+      containers:
+      - image: dockerashu/web:v1
+        name: web
+        resources: {}
+status: {}

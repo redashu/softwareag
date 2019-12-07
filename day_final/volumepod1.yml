@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: ashupod1
+  name: pod1
+  namespace: ashuns
+spec:
+  nodeName: ip-172-31-16-239.us-west-2.compute.internal 
+  containers:
+  - image: nginx
+    name: pod1
+    ports:
+     - containerPort: 80
+    volumeMounts:
+     - name: myvol
+       mountPath: /usr/share/nginx/html/
+  restartPolicy: Always
+  volumes:
+   - name: myvol
+     hostPath:
+      path: /opt/mypage
+      type: Directory
+
+  
